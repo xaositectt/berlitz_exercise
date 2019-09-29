@@ -1,0 +1,45 @@
+// $breakpoints: (
+//   not-small: 'screen and (min-width: 30em)', // > 480px
+//   medium: 'screen and (min-width: 30em) and (max-width: 60em)', // 480px < x > 960px
+//   large: 'screen and (min-width: 60em) and (max-width: 90em)', // 960px < x > 1440px
+//   extra-large: 'screen and (min-width: 90em)' // > 1440px
+// );
+
+$breakpoints: (
+  not-small: 'screen and (min-width: 40em)', // > 640px
+  medium: 'screen and (min-width: 52em)', // > 832px
+  large: 'screen and (min-width: 64em)', // > 1024px
+  xl: 'screen and (min-width: 90em)', // > 1440px
+  xxl: 'screen and (min-width: 114em)' // > 1824px
+);
+
+// :root {
+//   '--not-small': (min-width: 30em),
+//   '--medium': (min-width: 30em) and (min-width: 60em),
+//   '--large': (min-width: 60em) and (min-width: 90em),
+//   '--extra-large': (min-width: 90em)
+// }
+
+// @custom-media --not-small screen and (min-width: 30em); // > 480px
+// @custom-media --medium screen and (min-width: 30em) and (max-width: 60em); // 480px < x > 960px
+// @custom-media --large screen and (min-width: 60em) and (max-width: 90em); // 960px < x > 1440px
+// @custom-media --extra-large screen and (min-width: 90em); // > 1440px
+
+@mixin media($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
