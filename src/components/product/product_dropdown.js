@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Icon, Dropdown, Menu } from 'antd'
+import { Select } from 'antd'
+
+const { Option } = Select
 
 ProductDropdown.propTypes = {
   variations: PropTypes.array,
@@ -8,21 +10,17 @@ ProductDropdown.propTypes = {
 }
 
 export default function ProductDropdown({variations, handleClick}) {
-  const menuItems = (
-    <Menu>
-      {variations.map((variation, i) =>
-        <Menu.Item key={i} onClick={handleClick}>
-          {variation.color}
-        </Menu.Item>
-      )}
-    </Menu>
+  const items = variations.map((variation, i) =>
+    (<Option value={i} key={i}>
+      {variation.color}
+    </Option>)
   )
 
+  const defaultColor = variations.find(variation => variation.default).color
+
   return (
-    <Dropdown overlay={menuItems}>
-      <Button style={{width: '120px'}}>
-        <Icon type="down" className={'fr'}/>
-      </Button>
-    </Dropdown>
+    <Select defaultValue={defaultColor} style={{ width: 120 }} onChange={handleClick}>
+      {items}
+    </Select>
   )
 }

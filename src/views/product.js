@@ -21,8 +21,8 @@ export default function ProductItem() {
     console.log(labels.backBtnMsg)
   }
 
-  const handleDropdownClick = e => {
-    setImage(product.variations[e.key].img)
+  const handleDropdownClick = value => {
+    setImage(product.variations[value].img)
   }
 
   const clickAddToCart = () => {
