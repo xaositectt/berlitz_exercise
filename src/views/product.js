@@ -22,10 +22,11 @@ export default function ProductItem() {
 
   return (
     <div>
-      <div className={'flex flex-column-reverse flex-row-m vh-100-ns'}>
+      <div className={'flex flex-column flex-row-m vh-100-ns'}>
         <section className={'flex flex-column w-50-m p0 bn br-m b--light-gray'}>
           <ContentBox>
             <ProductButton onClick={handleBackButtonClick} label={'ALL PRODUCTS'} icon={'arrow-left'}/>
+            <img src={imageBlack} className={'db mt3 dn-m ' + style.product_image}/>
             <br />
             <div className={'f4 f3-ns f2-l fw7 mt4-m mt5-xl'}>{product.name}</div>
             <div className={'light-gray2 f6 f5-ns fw5'}>{product.subTitle}</div>
@@ -40,7 +41,7 @@ export default function ProductItem() {
           </ContentBox>
         </section>
 
-        <section className={'vh-100-m w-50-m flex-m items-center justify-center'}>
+        <section className={'vh-100-m w-50-m dn flex-m items-center justify-center'}>
           <img src={imageBlack} className={'db ' + style.product_image}/>
         </section>
       </div>
