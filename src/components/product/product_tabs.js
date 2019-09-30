@@ -22,7 +22,7 @@ export default function ProductTabs({product, handleDropdownClick}) {
           </div>
           <div className={'f3 fw7 mb3 mb5-xl'}>
             <span className={'pr4'}>{`$${product.actualPrice}`}</span>
-            <span className={'light-gray2'} style={{textDecoration: 'line-through'}}>{`$${product.oldPrice}`}</span>
+            <span className={'light-gray2 strike'}>{`$${product.oldPrice}`}</span>
           </div>
           <div className={'f6 fw7 mb2'}>COLORS</div>
           <ProductDropdown variations={product.variations} handleClick={handleDropdownClick}/>
