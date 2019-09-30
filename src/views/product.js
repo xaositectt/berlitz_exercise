@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import ContentBox from '../components/content_box'
 import ProductButton from '../components/product/product_button'
 import ProductTabs from '../components/product/product_tabs'
-import { Button } from 'antd'
+import { Button, message } from 'antd'
 import style from '../styles/modules/product_item.module.scss'
 
 import product from '../services/product'
 export default function ProductItem() {
   const defaultImg = product.variations.find(variation => variation.default).img
   const [image, setImage] = useState(defaultImg)
+  const [buttonLabel, setButtonLabel] = useState('ADD TO CART')
 
   const handleBackButtonClick = () => {
     console.log('going back...')
@@ -19,7 +20,11 @@ export default function ProductItem() {
   }
 
   const clickAddToCart = () => {
-    console.log('adding to cart...')
+    setButtonLabel('LOADING...')
+    setTimeout(() => {
+      message.info('Item added to cart!')
+      setButtonLabel('VIEW CART')
+    }, 2000)
   }
 
   return (
@@ -38,7 +43,7 @@ export default function ProductItem() {
 
           <ContentBox innerClass={'bt b--light-gray mt-auto'}>
             <Button type="primary" className={'mv3 mv4-ns ' + style.product_button} onClick={clickAddToCart} style={{height: '50px'}}>
-              <span className={'fw8'}>ADD TO CART</span>
+              <span className={'fw8'}>{buttonLabel}</span>
             </Button>
           </ContentBox>
         </section>
