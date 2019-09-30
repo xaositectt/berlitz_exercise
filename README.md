@@ -1,5 +1,15 @@
 # Berlitz React Developer Test
 
+## Project info
+
+[Tachyons](https://tachyons.io/docs/table-of-styles/) css framework and Ant Design UI library are used together with SASS.<br>
+[Ant Design](https://ant.design/) stylesheet can be overwritten in the src/styles/antd/ library.<br>
+<br>
+The component labels are filled up from .json files in src/dictionary.
+<br>
+The product information comes from a product object from product.js in src/services as a substitute for an API service that fetches the product data.
+
+
 ## Download and run
 
 Clone the application:
@@ -38,3 +48,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.
 
 ## Test
+
+```console
+yarn test
+```
+
+Runs puppeteer + jest tests in Chromium to test the input and DOM elements.

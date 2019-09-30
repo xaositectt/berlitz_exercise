@@ -9,7 +9,7 @@ import labels from '../dictionary/product.json'
 
 // I would get this from an API and possibly load it into the store and get it from there based on an ID
 // that is passed from above.
-// for illustration purposes here I am just importing it from a separate file.
+// for illustration purposes here I am importing it from a separate file.
 import product from '../services/product'
 
 export default function ProductItem() {
