@@ -17,10 +17,10 @@ export default function ProductTabs({product, handleDropdownClick}) {
     <Tabs className={'bg-white ' + style.tabs}>
       <TabPane tab="Description" key="1">
         <ContentBox>
-          <div className={'f6 f5-xl mb3'}>
+          <div className={'f6 f5-xl mb2 mb3-m'}>
             {product.description}
           </div>
-          <div className={'f3 fw7 mb5'}>
+          <div className={'f3 fw7 mb3 mb5-xl'}>
             <span className={'pr4'}>{`$${product.actualPrice}`}</span>
             <span className={'light-gray2'} style={{textDecoration: 'line-through'}}>{`$${product.oldPrice}`}</span>
           </div>
@@ -30,7 +30,7 @@ export default function ProductTabs({product, handleDropdownClick}) {
       </TabPane>
       <TabPane tab="Details" key="2">
         <ContentBox>
-          <div className={'f5'}>
+          <div className={'f6 f5-xl'}>
             {product.details}
           </div>
         </ContentBox>
