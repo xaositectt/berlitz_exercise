@@ -1,0 +1,17 @@
+@import '../breakpoints.scss';
+
+.tabs {
+  height: 90vh;
+  @media screen and (min-width: 22em) {
+    height:65vh;
+  }
+  @media screen and (min-width: 26em) {
+    height:50vh;
+  }
+  @include media(not-small) {
+    height: 45vh;
+  }
+  @include media(medium) {
+    height: 55vh;
+  }
+}

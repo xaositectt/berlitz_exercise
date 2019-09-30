@@ -3,6 +3,7 @@ import ContentBox from '../content_box'
 import ProductDropdown from './product_dropdown'
 import PropTypes from 'prop-types'
 import { Tabs } from 'antd'
+import style from '../../styles/modules/product_tabs.module.scss'
 
 const { TabPane } = Tabs
 
@@ -13,7 +14,7 @@ ProductTabs.propTypes = {
 
 export default function ProductTabs({product, handleDropdownClick}) {
   return (
-    <Tabs className={'bg-white '}>
+    <Tabs className={'bg-white ' + style.tabs}>
       <TabPane tab="Description" key="1">
         <ContentBox>
           <div className={'f6 f5-xl mb3'}>
