@@ -2,5 +2,10 @@
 @import './breakpoints';
 @import './colors';
 @import './functions';
+@import './ant_override';
 
 @import './xl/spacing';
+
+.mt-auto {
+  margin-top: auto;
+}

@@ -1,0 +1,10 @@
+
+.ant-tabs-nav-container {
+  padding-left: 1rem;
+  @include media(not-small) {
+    padding-left: 2rem;
+  }
+  @include media(xl) {
+    padding-left: 4rem;
+  }
+}
