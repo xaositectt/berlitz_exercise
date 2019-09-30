@@ -25,7 +25,7 @@ export default function ProductTabs({product, handleDropdownClick}) {
             <span className={'light-gray2'} style={{textDecoration: 'line-through'}}>{`$${product.oldPrice}`}</span>
           </div>
           <div className={'f6 fw7 mb2'}>COLORS</div>
-          <ProductDropdown handleDropdownClick={handleDropdownClick}/>
+          <ProductDropdown variations={product.variations} handleClick={handleDropdownClick}/>
         </ContentBox>
       </TabPane>
       <TabPane tab="Details" key="2">

@@ -4,18 +4,17 @@ import { Button, Icon, Dropdown, Menu } from 'antd'
 
 ProductDropdown.propTypes = {
   variations: PropTypes.array,
-  handleDropdownClick: PropTypes.func
+  handleClick: PropTypes.func
 }
 
-export default function ProductDropdown({handleDropdownClick}) {
+export default function ProductDropdown({variations, handleClick}) {
   const menuItems = (
-    <Menu onClick={handleDropdownClick}>
-      <Menu.Item key="1">
-        Black
-      </Menu.Item>
-      <Menu.Item key="2">
-        Brown
-      </Menu.Item>
+    <Menu>
+      {variations.map((variation, i) =>
+        <Menu.Item key={i} onClick={handleClick}>
+          {variation.color}
+        </Menu.Item>
+      )}
     </Menu>
   )
 
