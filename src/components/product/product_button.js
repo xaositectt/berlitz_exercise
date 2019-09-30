@@ -11,7 +11,7 @@ ProductButton.propTypes = {
 
 export default function ProductButton({label, icon, onClick}) {
   return (
-    <div className={'flex items-center ' + style.link} onClick={onClick}>
+    <div className={style.link} onClick={onClick}>
       <Icon type={icon} className={'pr3 f4'} />
       <span className={'f5'}>{label}</span>
     </div>
