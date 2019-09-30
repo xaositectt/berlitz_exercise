@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import { Tabs } from 'antd'
 import style from '../../styles/modules/product_tabs.module.scss'
 
+import labels from '../../dictionary/product_tabs.json'
+
 const { TabPane } = Tabs
 
 ProductTabs.propTypes = {
@@ -15,20 +17,20 @@ ProductTabs.propTypes = {
 export default function ProductTabs({product, handleDropdownClick}) {
   return (
     <Tabs className={'bg-white ' + style.tabs}>
-      <TabPane tab="Description" key="1">
+      <TabPane tab={labels.tabOne} key="1">
         <ContentBox>
-          <div className={'f6 f5-xl mb2 mb3-m'}>
+          <div className={'f6 f5-xl mb2 mb4-m lh-copy'}>
             {product.description}
           </div>
-          <div className={'f3 fw7 mb3 mb5-xl'}>
+          <div className={'f2 fw7 mb3 mb5-xl'}>
             <span className={'pr4'}>{`$${product.actualPrice}`}</span>
             <span className={'light-gray2 strike'}>{`$${product.oldPrice}`}</span>
           </div>
-          <div className={'f6 fw7 mb2'}>COLORS</div>
+          <div className={'f6 fw7 mb2'}>{labels.dropdownLabel}</div>
           <ProductDropdown variations={product.variations} handleClick={handleDropdownClick}/>
         </ContentBox>
       </TabPane>
-      <TabPane tab="Details" key="2">
+      <TabPane tab={labels.tabTwo} key="2">
         <ContentBox>
           <div className={'f6 f5-xl'}>
             {product.details}

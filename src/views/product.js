@@ -5,14 +5,20 @@ import ProductTabs from '../components/product/product_tabs'
 import { Button, message } from 'antd'
 import style from '../styles/modules/product_item.module.scss'
 
+import labels from '../dictionary/product.json'
+
+// I would get this from an API and possibly load it into the store and get it from there based on an ID
+// that is passed from above.
+// for illustration purposes here I am just importing it from a separate file.
 import product from '../services/product'
+
 export default function ProductItem() {
   const defaultImg = product.variations.find(variation => variation.default).img
   const [image, setImage] = useState(defaultImg)
   const [buttonLabel, setButtonLabel] = useState('ADD TO CART')
 
   const handleBackButtonClick = () => {
-    console.log('going back...')
+    console.log(labels.backBtnMsg)
   }
 
   const handleDropdownClick = e => {
@@ -20,10 +26,10 @@ export default function ProductItem() {
   }
 
   const clickAddToCart = () => {
-    setButtonLabel('LOADING...')
+    setButtonLabel(labels.btmBtnLoading)
     setTimeout(() => {
-      message.info('Item added to cart!')
-      setButtonLabel('VIEW CART')
+      message.info(labels.btmBtnInfoMsg)
+      setButtonLabel(labels.btmBtnLoadingDone)
     }, 2000)
   }
 
@@ -32,9 +38,8 @@ export default function ProductItem() {
       <div className={'flex flex-column flex-row-m vh-100-ns'}>
         <section className={'flex flex-column w-50-m p0 bn br-m b--light-gray'}>
           <ContentBox>
-            <ProductButton onClick={handleBackButtonClick} label={'ALL PRODUCTS'} icon={'arrow-left'}/>
+            <ProductButton onClick={handleBackButtonClick} label={labels.topBtnLabel} icon={'arrow-left'}/>
             <img src={image} className={'db mt3 dn-m ' + style.product_image}/>
-            <br />
             <div className={'f4 f3-ns f2-l fw7 mt4-m mt5-xl'}>{product.name}</div>
             <div className={'light-gray2 f6 f5-ns fw5'}>{product.subTitle}</div>
           </ContentBox>
