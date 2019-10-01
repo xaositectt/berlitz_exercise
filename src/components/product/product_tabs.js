@@ -16,13 +16,13 @@ ProductTabs.propTypes = {
 
 export default function ProductTabs({product, handleDropdownClick}) {
   return (
-    <Tabs className={'bg-white ' + style.tabs}>
+    <Tabs className={`bg-white ${style.tabs}`}>
       <TabPane tab={labels.tabOne} key="1">
         <ContentBox>
-          <div className={'f6 f5-xl mb2 mb4-m lh-copy'}>
+          <div className={'f7 f6-ns f5-xl mb2 mb4-xl lh-copy-ns'}>
             {product.description}
           </div>
-          <div className={'f2 fw7 mb3 mb5-l'}>
+          <div className={'f3 f2-l fw7 mb3 mb5-xl'}>
             <span className={'pr4'}>{`$${product.actualPrice}`}</span>
             <span className={'light-gray2 strike'}>{`$${product.oldPrice}`}</span>
           </div>
@@ -32,7 +32,7 @@ export default function ProductTabs({product, handleDropdownClick}) {
       </TabPane>
       <TabPane tab={labels.tabTwo} key="2">
         <ContentBox>
-          <div className={'f6 f5-xl'}>
+          <div className={'f7 f6-ns f5-xl'}>
             {product.details}
           </div>
         </ContentBox>

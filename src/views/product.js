@@ -39,7 +39,7 @@ export default function ProductItem() {
         <section className={'flex flex-column w-50-m p0 bn br-m b--light-gray'}>
           <ContentBox>
             <ProductButton onClick={handleBackButtonClick} label={labels.topBtnLabel} icon={'arrow-left'}/>
-            <img src={image} className={'db mt3 dn-m ' + style.product_image}/>
+            <img src={image} className={`db mt3 dn-m ${style.product_image}`}/>
             <div className={'f4 f3-ns f2-l fw7 mt4-m mt5-xl'}>{product.name}</div>
             <div className={'light-gray2 f6 f5-ns fw5'}>{product.subTitle}</div>
           </ContentBox>
@@ -47,14 +47,14 @@ export default function ProductItem() {
           <ProductTabs product={product} handleDropdownClick={handleDropdownClick} />
 
           <ContentBox innerClass={'bt b--light-gray mt-auto'}>
-            <Button type="primary" className={'mv3 mv4-ns ' + style.product_button} onClick={clickAddToCart} style={{height: '50px'}}>
+            <Button type="primary" className={`mv3 mv4-ns ${style.product_button}`} onClick={clickAddToCart} style={{height: '50px'}}>
               <span className={'fw8'}>{buttonLabel}</span>
             </Button>
           </ContentBox>
         </section>
 
         <section className={'vh-100-m w-50-m dn flex-m items-center justify-center'}>
-          <img src={image} className={'db ' + style.product_image}/>
+          <img src={image} className={`db ${style.product_image}`}/>
         </section>
       </div>
     </div>
